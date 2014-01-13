@@ -1,12 +1,4 @@
 <?php
-
-// Event::listen('illuminate.query',function($q){
-// 	var_dump($q);
-// });
-// Route::get('test',function(){
-	
-
-// });
 Route::get('/', ['as' => 'home' ,'uses'=>'PageController@index']);
 Route::get('about', ['as' => 'about' ,'uses'=>'PageController@about']);
 Route::get('faqs', ['as' => 'faqs' ,'uses'=>'PageController@faqs']);
