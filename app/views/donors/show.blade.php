@@ -39,12 +39,20 @@
   </div>
 
   <div class="col-md-3 memberdetails side">
-  	<h4>Send Enquiry</h4>
+  	<h4>Need Blood ? Send Enquiry</h4>
   	<hr>
   	<?php
   	if(Auth::check()){
   	$loguser=Auth::user()->name;
-  }else{$loguser='';}
+    $city = Auth::user()->city;
+    $email = Auth::user()->email;
+    $number = Auth::user()->phoneNo;
+  }else{
+    $loguser='';
+     $city = '';
+    $email = '';
+    $number = '';
+  }
   ?>
   	{{Form::open()}}
 		<div class="form-group">
@@ -54,7 +62,7 @@
 
  		 <div class="form-group">
   			{{Form::label('city','Your City')}}
-			{{Form::text('city',null,['class' => 'form-control'])}}
+			{{Form::text('city',$city,['class' => 'form-control'])}}
  		 </div>
 
  		 <!-- <div class="form-group">
@@ -65,11 +73,11 @@
 
  		 <div class="form-group">
   			{{Form::label('email','Your Email')}}
-			{{Form::text('email',null,['class' => 'form-control'])}}
+			{{Form::text('email',$email,['class' => 'form-control'])}}
  		 </div>
  		 <div class="form-group">
   			{{Form::label('no','Your Number')}}
-			{{Form::text('no',null,['class' => 'form-control'])}}
+			{{Form::text('no',$number,['class' => 'form-control'])}}
  		 </div>
 
  		 <div class="form-group">

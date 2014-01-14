@@ -1,4 +1,5 @@
 <?php
+
 Route::get('/', ['as' => 'home' ,'uses'=>'PageController@index']);
 Route::get('about', ['as' => 'about' ,'uses'=>'PageController@about']);
 Route::get('faqs', ['as' => 'faqs' ,'uses'=>'PageController@faqs']);

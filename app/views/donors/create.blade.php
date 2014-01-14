@@ -1,6 +1,10 @@
 @extends('master')
 @section('container')
-
+<style>
+    body {
+    background: #d03e44 url('http://demo.cactusthemes.com/emerald2/wp-content/uploads/2013/07/Slider-BG-Violet.jpg');
+  }
+</style>
 	<div class="container wrap">
     <div class="row">
         <div class="col-md-12 content">

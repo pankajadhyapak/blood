@@ -2,7 +2,7 @@
 @section('container')
 	<div class="banner">
 		<h1 class="animated bounceInUp">Blood Bank With You Forever</h1>
-		<a href="/lessons" class="btn btn-transparent animated bounceInLeft"><i class="fa fa-search"></i> Search Blood</a>
+		<button onclick="$('#myModal').modal()" class="btn btn-transparent animated bounceInLeft"><i class="fa fa-search"></i> Search Blood</button>
 	</div>
 	<div class="container">
     <div class="row home-points section hm">

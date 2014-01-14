@@ -1,6 +1,13 @@
 <?php
-
+use Blood\Mailers\DonorMailer as Mailer;
 class DonorsController extends BaseController {
+
+    protected $mailer;
+
+    public function __construct(Mailer $mailer){
+        $this->mailer = $mailer;
+    }
+
 
 	/**
 	 * Display a listing of the resource.
@@ -48,9 +55,10 @@ class DonorsController extends BaseController {
 			$donor->description=Input::get('bio');
 			$donor->save();
 			$user = Donor::find($donor->id);
-			Auth::login($user);			
+			Auth::login($user);
+            $this->mailer->welcome($user);
 			return Redirect::to('/')->with('success','Account Created Successfully');
-		} else { 
+		} else {
 			return Redirect::back()->withErrors($v)->withInput();
 		}
 	}
@@ -146,3 +154,4 @@ class DonorsController extends BaseController {
 	}
 
 }
+git remote add origin https://github.com/pankajadhyapak/blood.git
