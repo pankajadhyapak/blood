@@ -58,7 +58,7 @@ body{
   display: none;
 }
 
-.successerr{
+.success{
   text-align: center;
   z-index: 99999;
   position: absolute;
