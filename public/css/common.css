@@ -58,7 +58,7 @@ body{
   display: none;
 }
 
-.success{
+.successerr{
   text-align: center;
   z-index: 99999;
   position: absolute;
@@ -274,4 +274,7 @@ padding-left: 0;
 .footer-links li a:hover{
   color:#d03e44;
   text-decoration: none;
+}
+.msgs a.list-group-item{
+    margin-bottom: 2px;
 }

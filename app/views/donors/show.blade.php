@@ -54,7 +54,7 @@
     $number = '';
   }
   ?>
-  	{{Form::open()}}
+  	{{Form::open(['route' => 'messages.store'])}}
 		<div class="form-group">
   			{{Form::label('name','Your Name')}}
 			{{Form::text('name',$loguser,['class' => 'form-control'])}}
@@ -83,6 +83,9 @@
  		 <div class="form-group">
   			{{Form::label('msg','Message(optional)')}}
 			{{Form::textarea('msg',null,['class' => 'form-control','rows'=>'2'])}}
+             {{Form::hidden('from',Auth::user()->id)}}
+             {{Form::hidden('to',$donor->id)}}
+
  		 </div>
 
  		 {{Form::submit('Send Enquirey',['class' => 'btn btn-primary'])}}

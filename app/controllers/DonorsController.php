@@ -105,14 +105,28 @@ class DonorsController extends BaseController {
 			'email'=>"email|required|unique:donors,email,$id",
 			'password'=>'required|min:6|alpha_num|confirmed',
 			'city'=>'alpha|required',
-			'phno'=>'numeric|required|digits:10'
+			'phoneNo'=>'numeric|required|digits:10'
 			];
-		$v = Validator::make($input,$uprules);
-		if( $v->passes() ) {
-			return "update";
-		}else { 
-			return Redirect::back()->withErrors($v)->withInput();
-		}
+		$uv = Validator::make($input,$uprules);
+		if( $uv->passes() ) {
+
+
+            $d = Donor::find($id);
+            foreach (Input::except('password_confirmation','_method') as $key => $value) {
+                if($key == '_token' || $value == '') continue ;
+                $in[$key] = $value;
+
+            }
+            if($d->fill($in)){
+                $d->save();
+                return Redirect::back()->with('success','Profile Updated ! ');
+
+            }
+        }else {
+            return Redirect::back()->withErrors($uv);
+        }
+
+
 	}
 
 	/**
@@ -153,5 +167,12 @@ class DonorsController extends BaseController {
 		}
 	}
 
+    public function sendRequest(){
+            //dd (Input::all());
+            $request = new Request;
+            $request->to = Input::get('to');
+               $request->save();
+
+    }
+
 }
-git remote add origin https://github.com/pankajadhyapak/blood.git

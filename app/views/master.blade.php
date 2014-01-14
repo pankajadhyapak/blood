@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -99,8 +100,10 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="requests">
-                                    <i class="fa fa-comment"></i> Requests <span class="badge pull-right">42</span>
+                                <a href="messages">
+
+
+                                    <i class="fa fa-comment"></i> Requests <span class="badge pull-right">{{ msg_count(Auth::user()->id) }}</span>
                                 </a>
                             </li>
                            

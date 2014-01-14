@@ -4,7 +4,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
 class Donor extends Eloquent implements UserInterface, RemindableInterface {
-	protected $gaurded = [];
+	protected $guarded = [];
 	public static $rules = [
 			'name'=>'alpha|required',
 			'email'=>'email|required|unique:donors',
@@ -57,5 +57,15 @@ class Donor extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->email;
 	}
+
+    public function inbox()
+    {
+        return $this->hasMany('Message','to');
+    }
+
+    public function sent()
+    {
+        return $this->hasMany('Message','from');
+    }
 
 }
